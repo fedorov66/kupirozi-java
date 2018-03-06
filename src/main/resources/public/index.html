@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="result"></div>
+
+<input type="text" id="quantity" value="1">
+<button id="add">Add items</button>
+
+<script>
+    $(document).ready(() => {
+
+        $('#add').click(e => {
+            e && e.preventDefault();
+            let params = {
+                id : 666,
+                quantity : $('#quantity').val()
+            };
+
+           let timersPool = [];
+           $.ajax({
+                method: 'POST',
+                url: '/api/add/item',
+                data: params
+            }).done(uid => {
+                (function() {
+                    timersPool[uid] = setInterval(function(){
+                        $.ajax({
+                            method: 'GET',
+                            url: '/api/requestStatus/' + uid,
+                        }).done(data => {
+                            if (data != 'NEW') {
+                                console.log('Request status: ' + data + ', clear interval:' + timersPool[uid]);
+                                clearInterval(timersPool[uid]);
+                            } else {
+                                console.log('await to be processed: ' + data + '|' + timersPool[uid]);
+                            }
+                        });
+                    }, 2000);
+                })();
+            });
+        });
+        setInterval(()=> {
+            $.ajax({
+                method: 'GET',
+                url: '/api/processed',
+            }).done(data => {
+                document.querySelector('#result').innerHTML = data;
+            });
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_kupirozi-java" default="compile.module.kupirozi-java">
+  <dirname property="module.kupirozi-java.basedir" file="${ant.file.module_kupirozi-java}"/>
+  
+  <property name="module.jdk.home.kupirozi-java" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.kupirozi-java" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.kupirozi-java" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.kupirozi-java" value="-encoding UTF-8 -source 8 -target 1.5 ${compiler.args}"/>
+  
+  <property name="kupirozi-java.output.dir" value="${module.kupirozi-java.basedir}/target/classes"/>
+  <property name="kupirozi-java.testoutput.dir" value="${module.kupirozi-java.basedir}/target/test-classes"/>
+  
+  <path id="kupirozi-java.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="kupirozi-java.module.production.classpath">
+    <path refid="${module.jdk.classpath.kupirozi-java}"/>
+    <path refid="library.maven:_com.sparkjava:spark-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.13.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-webapp:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414.classpath"/>
+  </path>
+  
+  <path id="kupirozi-java.runtime.production.module.classpath">
+    <pathelement location="${kupirozi-java.output.dir}"/>
+    <path refid="library.maven:_com.sparkjava:spark-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.13.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-webapp:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414.classpath"/>
+  </path>
+  
+  <path id="kupirozi-java.module.classpath">
+    <path refid="${module.jdk.classpath.kupirozi-java}"/>
+    <pathelement location="${kupirozi-java.output.dir}"/>
+    <path refid="library.maven:_com.sparkjava:spark-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.13.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-webapp:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414.classpath"/>
+  </path>
+  
+  <path id="kupirozi-java.runtime.module.classpath">
+    <pathelement location="${kupirozi-java.testoutput.dir}"/>
+    <pathelement location="${kupirozi-java.output.dir}"/>
+    <path refid="library.maven:_com.sparkjava:spark-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.13.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-webapp:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.kupirozi-java">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.kupirozi-java">
+    <patternset refid="excluded.from.module.kupirozi-java"/>
+  </patternset>
+  
+  <path id="kupirozi-java.module.sourcepath">
+    <dirset dir="${module.kupirozi-java.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="kupirozi-java.module.test.sourcepath">
+    <dirset dir="${module.kupirozi-java.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.kupirozi-java" depends="compile.module.kupirozi-java.production,compile.module.kupirozi-java.tests" description="Compile module kupirozi-java"/>
+  
+  <target name="compile.module.kupirozi-java.production" depends="register.custom.compilers" description="Compile module kupirozi-java; production classes">
+    <mkdir dir="${kupirozi-java.output.dir}"/>
+    <javac2 destdir="${kupirozi-java.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.kupirozi-java}/javac">
+      <compilerarg line="${compiler.args.kupirozi-java}"/>
+      <bootclasspath refid="kupirozi-java.module.bootclasspath"/>
+      <classpath refid="kupirozi-java.module.production.classpath"/>
+      <src refid="kupirozi-java.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.kupirozi-java"/>
+    </javac2>
+    
+    <copy todir="${kupirozi-java.output.dir}">
+      <fileset dir="${module.kupirozi-java.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.kupirozi-java.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.kupirozi-java.tests" depends="register.custom.compilers,compile.module.kupirozi-java.production" description="compile module kupirozi-java; test classes" unless="skip.tests">
+    <mkdir dir="${kupirozi-java.testoutput.dir}"/>
+    <javac2 destdir="${kupirozi-java.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.kupirozi-java}/javac">
+      <compilerarg line="${compiler.args.kupirozi-java}"/>
+      <bootclasspath refid="kupirozi-java.module.bootclasspath"/>
+      <classpath refid="kupirozi-java.module.classpath"/>
+      <src refid="kupirozi-java.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.kupirozi-java"/>
+    </javac2>
+    
+    <copy todir="${kupirozi-java.testoutput.dir}">
+      <fileset dir="${module.kupirozi-java.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.kupirozi-java" description="cleanup module">
+    <delete dir="${kupirozi-java.output.dir}"/>
+    <delete dir="${kupirozi-java.testoutput.dir}"/>
+  </target>
+</project>
